@@ -8,7 +8,7 @@ export default function MatrixForm({ token, onResult }) {
     try {
       const matrix = JSON.parse(inputText);
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/matrix/rotate`, {
+      const res = await fetch(`http://18.188.99.23:4000/api/matrix/rotate`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
