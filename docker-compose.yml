@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  node-api:
+    build: ./b-node
+    container_name: node-api
+    ports:
+      - "5000:5000"
+
+  fiber-api:
+    build: ./b-fiber
+    container_name: fiber-api
+    ports:
+      - "4000:4000"
+    depends_on:
+      - node-api
+
+  frontend:
+    build: ./f-react
+    container_name: frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - fiber-api
