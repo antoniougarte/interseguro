@@ -5,8 +5,6 @@ dotenv.config();
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`✅ Servidor Node.js ejecutándose en http://localhost:${PORT}`);
-  console.log(`📊 Endpoint de estadísticas: POST http://localhost:${PORT}/api/stats`);
-  console.log(`💚 Health check: GET http://localhost:${PORT}/api/health`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor Node.js escuchando en http://0.0.0.0:${PORT}`);
 });

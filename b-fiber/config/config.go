@@ -10,7 +10,7 @@ type Config struct {
 func Load() *Config {
 	return &Config{
 		Port:         getEnv("PORT", "4000"),
-		NodeJSAPIURL: getEnv("NODEJS_API_URL", "http://localhost:3000"),
+		NodeJSAPIURL: getEnv("NODEJS_API_URL", "http://node-api:5000"),
 	}
 }
 

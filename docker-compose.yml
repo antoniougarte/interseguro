@@ -6,6 +6,8 @@ services:
     container_name: node-api
     ports:
       - "5000:5000"
+    env_file:
+      - .env
 
   fiber-api:
     build: ./b-fiber
@@ -14,6 +16,8 @@ services:
       - "4000:4000"
     depends_on:
       - node-api
+    env_file:
+      - .env
 
   frontend:
     build: ./f-react
@@ -22,3 +26,5 @@ services:
       - "5173:80"
     depends_on:
       - fiber-api
+    env_file:
+      - .env

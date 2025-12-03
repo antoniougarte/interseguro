@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/antoniougarte/b-fiber/internal/handler"
 	"github.com/antoniougarte/b-fiber/internal/middleware"
@@ -12,9 +13,14 @@ import (
 func main() {
 	app := fiber.New()
 
+	origins := os.Getenv("FRONTEND_URL")
+	if origins == "" {
+		origins = "*"
+	}
+
 	// CORS
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:5173,http://localhost:5174,http://localhost:4000",
+		AllowOrigins:     origins,
 		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
 		AllowMethods:     "GET, POST, PUT, DELETE, OPTIONS",
 		AllowCredentials: true,
